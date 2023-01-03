@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import BookingModal from './BookingModal';
 import Service from './Service';
 
-const AvailableAppointment = ({date}) => {
+const AvailableAppointment = ({ date }) => {
     const [services, setServices] = useState([]);
     const [treatment, setTreatment] = useState(null);
 
-    useEffect( () => {
+    useEffect(() => {
         fetch('services.json')
-        .then(res => res.json())
-        .then(data => setServices(data));
+            .then(res => res.json())
+            .then(data => setServices(data));
     }, []);
 
     return (
@@ -20,12 +20,16 @@ const AvailableAppointment = ({date}) => {
                 {
                     services.map(service => <Service
                         key={service._id}
-                        service={service} 
+                        service={service}
                         setTreatment={setTreatment}
                     ></Service>)
                 }
             </div>
-            { treatment && <BookingModal treatment={treatment}></BookingModal>}
+            {treatment && <BookingModal
+                date={date}
+                treatment={treatment}
+                setTreatment={setTreatment}
+            ></BookingModal>}
         </div>
     );
 };
