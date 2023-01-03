@@ -4,6 +4,7 @@
 
 - [M71: Final Project Part-1 (Home page)](#m71-final-project-part-1-home-page)
   - [71.1 Module introduction and project setup](#711-module-introduction-and-project-setup)
+  - [Environment Variables](#environment-variables)
 
 # M71: Final Project Part-1 (Home page)
 
@@ -28,3 +29,13 @@ __Decision making for CSS:__
 
 **[🔼Back to Top](#table-of-contents)**
 
+## Environment Variables
+
+``` JavaScript
+// In .env (from server repo)
+
+DB_USER=doctor_admin
+DB_PASS=SX0Lx89Dwptj7Eed
+```
+
+**[🔼Back to Top](#table-of-contents)**
