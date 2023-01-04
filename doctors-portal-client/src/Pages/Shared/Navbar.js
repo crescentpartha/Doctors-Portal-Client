@@ -6,12 +6,8 @@ import auth from '../../firebase.init';
 import Loading from './Loading';
 
 const Navbar = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
-
-    if (error) {
-        return <p className='text-red-500'><small>{error?.message}</small></p>
-    }
 
     if (loading) {
         return <Loading></Loading>
