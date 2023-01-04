@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { useSignInWithGoogle, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -18,6 +18,18 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
+    /* Fix Warning: 
+        Cannot update a component (`BrowserRouter`) while rendering a different component (`Login`). 
+        To locate the bad setState() call inside `Login` 
+        [Notes: navigate inside useEffect. That's all]
+    */
+    useEffect(() => {
+        if (gUser || user) {
+            // console.log(gUser || user);
+            navigate(from, { replace: true });
+        }
+    }, [user, gUser, from, navigate]);
+
     let signInError;
     if (error || gError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
@@ -25,11 +37,6 @@ const Login = () => {
 
     if (gLoading || loading) {
         return <Loading></Loading>
-    }
-
-    if (gUser || user) {
-        // console.log(gUser || user);
-        navigate(from, { replace: true });
     }
 
     const onSubmit = (data) => {
