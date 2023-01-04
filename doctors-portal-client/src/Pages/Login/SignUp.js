@@ -1,23 +1,23 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { useSignInWithGoogle, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithGoogle, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
-const Login = () => {
+const SignUp = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useSignInWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
 
     let signInError;
     if (error || gError) {
-        signInError = <p className='text-red-500'><small>{ error?.message || gError?.message }</small></p>
+        signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
 
     if (gLoading || loading) {
@@ -30,16 +30,41 @@ const Login = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        signInWithEmailAndPassword(data.email, data.password);
+        createUserWithEmailAndPassword(data.email, data.password);
     }
 
     return (
         <div className='flex h-screen justify-center items-center'>
             <div className="card w-96 bg-white shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Login</h2>
+                    <h2 className="text-center text-2xl font-bold">Sign Up</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Your Name"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is Required'
+                                    },
+                                    pattern: {
+                                        value: /^(([A-Za-z]+[-']?)*([A-Za-z]+)?\s)+([A-Za-z]+[-']?)*([A-Za-z]+)?$/,
+                                        message: 'Provide a valid Name'
+                                    }
+                                })}
+                            />
+                            <label className="label">
+                                {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name?.message}</span>}
+                                {errors.name?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.name?.message}</span>}
+                            </label>
+                        </div>
 
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
@@ -100,12 +125,12 @@ const Login = () => {
                         <input
                             className='btn w-full max-w-xs mt-3'
                             type="Submit"
-                            value="Login"
+                            value="Sign Up"
                             readOnly
                         />
                     </form>
 
-                    <p className='text-center'><small>New to Doctors Portal? <Link to="/signup" className='text-accent'>Create New Account</Link></small></p>
+                    <p className='text-center'><small>Already have an account? <Link to="/login" className='text-accent'>Please login</Link></small></p>
 
                     <div className="divider">OR</div>
 
@@ -119,4 +144,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;
