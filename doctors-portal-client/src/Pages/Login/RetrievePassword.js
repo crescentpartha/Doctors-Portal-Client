@@ -2,8 +2,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
@@ -72,7 +71,6 @@ const RetrievePassword = () => {
                     <p className='text-center'><small>Already have an account? <Link to="/login" className='text-accent'>Please login</Link></small></p>
                 </div>
             </div>
-            <ToastContainer></ToastContainer>
         </div>
     );
 };

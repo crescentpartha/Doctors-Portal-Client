@@ -60,7 +60,7 @@ const SignUp = () => {
                                         message: 'Name is Required'
                                     },
                                     pattern: {
-                                        value: /^(([A-Za-z]+[-']?)*([A-Za-z]+)?\s)+([A-Za-z]+[-']?)*([A-Za-z]+)?$/,
+                                        value: /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)*$/,
                                         message: 'Provide a valid Name'
                                     }
                                 })}

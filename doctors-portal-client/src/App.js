@@ -1,6 +1,8 @@
 import './App.css';
-import Navbar from './Pages/Shared/Navbar';
 import { Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Navbar from './Pages/Shared/Navbar';
 import Home from './Pages/Home/Home';
 import About from './Pages/About/About';
 import Login from './Pages/Login/Login';
@@ -25,6 +27,7 @@ function App() {
         <Route path='signup' element={<SignUp></SignUp>}></Route>
         <Route path='retrievePassword' element={<RetrievePassword></RetrievePassword>}></Route>
       </Routes>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
