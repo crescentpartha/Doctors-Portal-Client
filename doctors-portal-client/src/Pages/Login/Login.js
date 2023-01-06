@@ -117,6 +117,7 @@ const Login = () => {
                     </form>
 
                     <p className='text-center'><small>New to Doctors Portal? <Link to="/signup" className='text-accent'>Create New Account</Link></small></p>
+                    <p className='text-center'><small>Forget your password? <Link to="/retrievePassword" className='text-accent'>Reset Password</Link></small></p>
 
                     <div className="divider">OR</div>
 
