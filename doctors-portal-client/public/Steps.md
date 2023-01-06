@@ -6,6 +6,7 @@
   - [71.1 Module introduction and project setup](#711-module-introduction-and-project-setup)
   - [Environment Variables](#environment-variables)
   - [API Naming Convention](#api-naming-convention)
+  - [Initial Setup of `React-Query`](#initial-setup-of-react-query)
 
 # M71: Final Project Part-1 (Home page)
 
@@ -51,6 +52,35 @@ app.get('/booking/:id') // get a specific booking
 app.post('/booking') // add a new booking
 app.patch('/booking/:id') // specific one (for update)
 app.delete('/booking/:id') // specific one
+```
+
+**[🔼Back to Top](#table-of-contents)**
+
+## Initial Setup of `React-Query`
+
+``` JavaScript
+// In src/index.js
+
+import {
+  QueryClient,
+  QueryClientProvider,
+} from 'react-query'; // Step-01
+
+// Create a client
+const queryClient = new QueryClient(); // Step-02
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}> // Step-03
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </QueryClientProvider>
+  </React.StrictMode>
+);
+
+reportWebVitals();
 ```
 
 **[🔼Back to Top](#table-of-contents)**
