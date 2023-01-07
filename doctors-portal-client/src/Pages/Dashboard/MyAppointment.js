@@ -15,7 +15,7 @@ const MyAppointment = () => {
     }, [user]);
     return (
         <div>
-            <h2>My Appointment: {appointments.length}</h2>
+            <h2 className='text-lg font-bold mb-2'>My {appointments.length > 1 ? 'Appointments:' : 'Appointment:'} <span className='text-purple-500'>{appointments.length}</span></h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
