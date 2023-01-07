@@ -7,6 +7,7 @@
   - [Environment Variables](#environment-variables)
   - [API Naming Convention](#api-naming-convention)
   - [Initial Setup of `React-Query`](#initial-setup-of-react-query)
+  - [Fetching data using `useQuery` of `react-query`](#fetching-data-using-usequery-of-react-query)
 
 # M71: Final Project Part-1 (Home page)
 
@@ -58,6 +59,12 @@ app.delete('/booking/:id') // specific one
 
 ## Initial Setup of `React-Query`
 
+> Performant and powerful data synchronization for React. <br /><br /> Fetch, cache and update data in your React and React Native applications all without touching any `global state`. <br /><br /> React Query is often described as the missing data-fetching library for React, but in more technical terms, it makes fetching, caching, synchronizing and updating server state in your React applications a breeze.
+
+- [React Query](https://react-query-v3.tanstack.com/ "About react-query")
+- [Installation](https://react-query-v3.tanstack.com/installation "Installation of react-query")
+- [Quick Start](https://react-query-v3.tanstack.com/quick-start "Initial setup of react-query")
+
 ``` JavaScript
 // In src/index.js
 
@@ -81,6 +88,42 @@ root.render(
 );
 
 reportWebVitals();
+```
+
+**[🔼Back to Top](#table-of-contents)**
+
+## Fetching data using `useQuery` of `react-query`
+
+- [Overview](https://react-query-v3.tanstack.com/overview "Overview and code example")
+- [Devtools](https://react-query-v3.tanstack.com/devtools "Help visualize all of the inner workings of React Query and will likely save you hours of debugging if you find yourself in a pinch!")
+
+``` JavaScript
+const [services, setServices] = useState([]);
+
+const formattedDate = format(date, 'PP');
+useEffect(() => {
+    fetch(`http://localhost:5000/available?date=${formattedDate}`)
+        .then(res => res.json())
+        .then(data => setServices(data));
+}, [formattedDate]);
+
+/* React-Query is used as a alternative of this */
+
+// Use react-query to update slots automatically
+const { data: services, isLoading, refetch } = useQuery(['available', formattedDate], () => 
+    fetch(`http://localhost:5000/available?date=${formattedDate}`)
+    .then(res => res.json())
+)
+
+if (isLoading) {
+    return <Loading></Loading>
+}
+
+{treatment && <BookingModal refetch={refetch}></BookingModal>}
+
+// after destructuring, call the refetch to load data
+const BookingModal = ({ refetch }) => {}
+refetch();
 ```
 
 **[🔼Back to Top](#table-of-contents)**
