@@ -18,6 +18,10 @@ const useToken = user => {
             .then(res => res.json())
             .then(data => {
                 console.log('data inside useToken', data);
+                const accessToken = data.token;
+                // JWT token store in the local storage
+                localStorage.setItem('accessToken', accessToken);
+                setToken(accessToken);
             });
         }
     }, [user]);
