@@ -14,10 +14,19 @@ const MyAppointment = () => {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
-                .then(res => res.json())
-                .then(data => setAppointments(data));
+                .then(res => {
+                    console.log('res', res);
+                    if (res.status === 401 || res.status === 403) {
+
+                    }
+                    return res.json()
+                })
+                .then(data => {
+                    setAppointments(data);
+                });
         }
     }, [user]);
+    
     return (
         <div>
             <h2 className='text-lg font-bold mb-2'>My {appointments.length > 1 ? 'Appointments:' : 'Appointment:'} <span className='text-purple-500'>{appointments.length}</span></h2>
