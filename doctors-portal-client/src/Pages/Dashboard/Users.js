@@ -34,6 +34,7 @@ const Users = () => {
                             key={user._id}
                             user={user}
                             refetch={refetch}
+                            index={users.indexOf(user)+1}
                             ></UserRow>)
                         }
                     </tbody>
