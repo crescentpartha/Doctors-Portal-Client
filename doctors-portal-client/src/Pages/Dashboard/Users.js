@@ -6,7 +6,7 @@ import UserRow from './UserRow';
 const Users = () => {
     // we can use useState, useEffect (fetch, axios, async-await, react-query)
     // using react-query
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://doctors-portal-server-crescentpartha.vercel.app/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

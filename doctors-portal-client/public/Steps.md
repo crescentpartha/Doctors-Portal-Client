@@ -8,6 +8,7 @@
   - [API Naming Convention](#api-naming-convention)
   - [Initial Setup of `React-Query`](#initial-setup-of-react-query)
   - [Fetching data using `useQuery` of `react-query`](#fetching-data-using-usequery-of-react-query)
+  - [Server Deploy on `Vercel`](#server-deploy-on-vercel)
 
 # M71: Final Project Part-1 (Home page)
 
@@ -39,6 +40,7 @@ __Decision making for CSS:__
 
 DB_USER=doctor_admin
 DB_PASS=SX0Lx89Dwptj7Eed
+ACCESS_TOKEN_SECRET=9afeec896f27951228603f3c9c9d3a7f4ed1239f06caadcc53a10bf0d982815e876d3a9df4209fb7e24ad1cb70041a8ef185103df592097f4ed45a1759de344c
 ```
 
 **[🔼Back to Top](#table-of-contents)**
@@ -52,6 +54,7 @@ app.get('/booking') // get all booking in this collection | get more than one | 
 app.get('/booking/:id') // get a specific booking
 app.post('/booking') // add a new booking
 app.patch('/booking/:id') // specific one (for update)
+app.put('/booking/:id') // upsert ==> update (if exists) or insert (if doesn't exist)
 app.delete('/booking/:id') // specific one
 ```
 
@@ -125,5 +128,14 @@ if (isLoading) {
 const BookingModal = ({ refetch }) => {}
 refetch();
 ```
+
+**[🔼Back to Top](#table-of-contents)**
+
+## Server Deploy on `Vercel`
+
+- [Server Deploy on Vercel (documentation)](https://github.com/crescentpartha/warehouse-management-server-side-crescentpartha/blob/main/Steps.md#server-deploy-on-vercel)
+- [How to deploy Express API without using vercel CLI (documentation)](https://github.com/crescentpartha/warehouse-management-server-side-crescentpartha/blob/main/Steps.md#how-to-deploy-express-api-without-using-vercel-cli)
+- Vercel Deploy Link: [https://doctors-portal-server-crescentpartha.vercel.app/](https://doctors-portal-server-crescentpartha.vercel.app/)
+- Live Website Link: [https://doctors-portal-63bdf.web.app/](https://doctors-portal-63bdf.web.app/)
 
 **[🔼Back to Top](#table-of-contents)**
