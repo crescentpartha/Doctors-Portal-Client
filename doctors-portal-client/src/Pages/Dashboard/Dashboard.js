@@ -14,7 +14,7 @@ const Dashboard = () => {
                 {/* <!-- Page content here --> */}
                 <h2 className='text-2xl font-bold text-purple-500 mb-3'>Welcome to your Dashboard</h2>
                 <Outlet></Outlet>
-                
+
             </div>
             <div className="drawer-side">
                 <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
@@ -23,7 +23,10 @@ const Dashboard = () => {
                     <li><Link to='/dashboard'>My Appointment</Link></li>
                     <li><Link to='/dashboard/review'>My Review</Link></li>
                     <li><Link to='/dashboard/history'>My History</Link></li>
-                    { admin && <li><Link to='/dashboard/users'>All Users</Link></li>}
+                    {admin && <>
+                        <li><Link to='/dashboard/users'>All Users</Link></li>
+                        <li><Link to='/dashboard/addDoctor'>Add a Doctor</Link></li>
+                    </>}
                 </ul>
 
             </div>
