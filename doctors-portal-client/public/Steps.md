@@ -9,6 +9,7 @@
   - [Initial Setup of `React-Query`](#initial-setup-of-react-query)
   - [Fetching data using `useQuery` of `react-query`](#fetching-data-using-usequery-of-react-query)
   - [Server Deploy on `Vercel`](#server-deploy-on-vercel)
+  - [3 ways to store images](#3-ways-to-store-images)
 
 # M71: Final Project Part-1 (Home page)
 
@@ -137,5 +138,15 @@ refetch();
 - [How to deploy Express API without using vercel CLI (documentation)](https://github.com/crescentpartha/warehouse-management-server-side-crescentpartha/blob/main/Steps.md#how-to-deploy-express-api-without-using-vercel-cli)
 - Vercel Deploy Link: [https://doctors-portal-server-crescentpartha.vercel.app/](https://doctors-portal-server-crescentpartha.vercel.app/)
 - Live Website Link: [https://doctors-portal-63bdf.web.app/](https://doctors-portal-63bdf.web.app/)
+
+**[🔼Back to Top](#table-of-contents)**
+
+## 3 ways to store images
+
+1. Third party storage like ___imgbb.com___ | Free open public storage is ok for practice project
+2. Your own storage in your own server (file system)
+3. Database: Mongodb (image verify & size content)
+    - `YUP`: to validate file like ___type___, ___size___.
+      - `keyword`: Yup file validation for react hook form
 
 **[🔼Back to Top](#table-of-contents)**
