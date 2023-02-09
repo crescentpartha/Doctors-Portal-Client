@@ -1,9 +1,10 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
+import DoctorRow from './DoctorRow';
 
 const ManageDoctors = () => {
-    const {data: doctors, isLoading } = useQuery('doctors', () => fetch('https://doctors-portal-server-crescentpartha.vercel.app/doctor', {
+    const { data: doctors, isLoading, refetch } = useQuery('doctors', () => fetch('https://doctors-portal-server-crescentpartha.vercel.app/doctor', {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -16,6 +17,29 @@ const ManageDoctors = () => {
     return (
         <div>
             <h2 className='text-2xl'>Manage Doctors: {doctors.length}</h2>
+            <div className="overflow-x-auto">
+                <table className="table w-full mt-2">
+                    <thead>
+                        <tr>
+                            <th>Index</th>
+                            <th>Avatar</th>
+                            <th>Name</th>
+                            <th>Specialty</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            doctors.map((doctor, index) => <DoctorRow
+                                key={doctor._id}
+                                doctor={doctor}
+                                index={index}
+                                refetch={refetch}
+                            ></DoctorRow>)
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
