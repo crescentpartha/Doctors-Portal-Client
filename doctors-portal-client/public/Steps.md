@@ -43,7 +43,7 @@ __Decision making for CSS:__
 DB_USER=doctor_admin
 DB_PASS=SX0Lx89Dwptj7Eed
 ACCESS_TOKEN_SECRET=9afeec896f27951228603f3c9c9d3a7f4ed1239f06caadcc53a10bf0d982815e876d3a9df4209fb7e24ad1cb70041a8ef185103df592097f4ed45a1759de344c
-EMAIL_SENDER_KEY=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
+EMAIL_SENDER_KEY= Remove this credentials that have been found to be publicly exposed | found on vercel
 EMAIL_SENDER=crescentpartha406@gmail.com
 ```
 
