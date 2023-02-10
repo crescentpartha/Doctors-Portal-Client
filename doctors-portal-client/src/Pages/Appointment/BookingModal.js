@@ -24,6 +24,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
             phone: event.target.phone.value
         }
 
+        // fetch('http://localhost:5000/booking', {
         fetch('https://doctors-portal-server-crescentpartha.vercel.app/booking', {
             method: 'POST',
             headers: {

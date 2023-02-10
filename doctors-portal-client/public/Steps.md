@@ -10,6 +10,7 @@
   - [Fetching data using `useQuery` of `react-query`](#fetching-data-using-usequery-of-react-query)
   - [Server Deploy on `Vercel`](#server-deploy-on-vercel)
   - [3 ways to store images](#3-ways-to-store-images)
+  - [How to Send SMTP Emails in Node.js With SendGrid](#how-to-send-smtp-emails-in-nodejs-with-sendgrid)
 
 # M71: Final Project Part-1 (Home page)
 
@@ -42,6 +43,8 @@ __Decision making for CSS:__
 DB_USER=doctor_admin
 DB_PASS=SX0Lx89Dwptj7Eed
 ACCESS_TOKEN_SECRET=9afeec896f27951228603f3c9c9d3a7f4ed1239f06caadcc53a10bf0d982815e876d3a9df4209fb7e24ad1cb70041a8ef185103df592097f4ed45a1759de344c
+EMAIL_SENDER_KEY=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
+EMAIL_SENDER=crescentpartha406@gmail.com
 ```
 
 **[🔼Back to Top](#table-of-contents)**
@@ -148,5 +151,17 @@ refetch();
 3. Database: Mongodb (image verify & size content)
     - `YUP`: to validate file like ___type___, ___size___.
       - `keyword`: Yup file validation for react hook form
+
+**[🔼Back to Top](#table-of-contents)**
+
+## How to Send SMTP Emails in Node.js With SendGrid
+
+- [NODEMAILER](https://nodemailer.com/about/)
+- [SMTP TRANSPORT](https://nodemailer.com/smtp/)
+- [SendGrid](https://app.sendgrid.com/ "Email marketing company for promotional & transactional emails")
+- [How to Send SMTP Emails in Node.js With SendGrid](https://www.twilio.com/blog/send-smtp-emails-node-js-sendgrid)
+- [SendGrid transport for Nodemailer (github)](https://github.com/nodemailer/nodemailer-sendgrid)
+- [nodemailer-sendgrid (npm)](https://www.npmjs.com/package/nodemailer-sendgrid)
+- [nodemailer-sendgrid-transport (npm)](https://www.npmjs.com/package/nodemailer-sendgrid-transport)
 
 **[🔼Back to Top](#table-of-contents)**
