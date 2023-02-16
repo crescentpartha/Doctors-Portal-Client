@@ -11,6 +11,10 @@
   - [Server Deploy on `Vercel`](#server-deploy-on-vercel)
   - [3 ways to store images](#3-ways-to-store-images)
   - [How to Send SMTP Emails in Node.js With SendGrid](#how-to-send-smtp-emails-in-nodejs-with-sendgrid)
+  - [Payment Steps](#payment-steps)
+    - [`Resources`](#resources)
+    - [Basic Stipe setup with simple card form - `Steps 01`](#basic-stipe-setup-with-simple-card-form---steps-01)
+    - [Handle payment processing error and success - `Steps 02`](#handle-payment-processing-error-and-success---steps-02)
 
 # M71: Final Project Part-1 (Home page)
 
@@ -163,5 +167,37 @@ refetch();
 - [SendGrid transport for Nodemailer (github)](https://github.com/nodemailer/nodemailer-sendgrid)
 - [nodemailer-sendgrid (npm)](https://www.npmjs.com/package/nodemailer-sendgrid)
 - [nodemailer-sendgrid-transport (npm)](https://www.npmjs.com/package/nodemailer-sendgrid-transport)
+
+**[🔼Back to Top](#table-of-contents)**
+
+## Payment Steps
+
+### `Resources`
+
+- [stripe.com](https://stripe.com/en-gb-us)
+- [React Stripe.js reference](https://stripe.com/docs/stripe-js/react "Learn about React components for Stripe.js and Stripe Elements")
+- [stripe/react-stripe-js](https://github.com/stripe/react-stripe-js "React components for Stripe.js and Stripe Elements")
+- [stripe/react-stripe-js/examples/hooks/0-Card-Minimal.js](https://github.com/stripe/react-stripe-js/blob/master/examples/hooks/0-Card-Minimal.js "Full Example | How to set up React Stripe.js and use Elements - How to accept a payment using the official Stripe docs.")
+- [Stripe Samples](https://github.com/stripe-samples)
+- [stripe-samples/checkout-one-time-payments](https://github.com/stripe-samples/checkout-one-time-payments "Accept payments with Stripe Checkout | Use Checkout to quickly collect one-time payments")
+- [stripe test cards](https://stripe.com/docs/testing "https://stripe.com/docs/testing")
+- [Simple Payment Integration](https://stripe.com/docs/payments/quickstart "Simple Payment Integration | Custom payment flow")
+
+**[🔼Back to Top](#table-of-contents)**
+
+### Basic Stipe setup with simple card form - `Steps 01`
+
+1. Install `stripe` and `react stripe.js`
+2. Open ___stripe account___ on stripe website
+3. Get ___publishable key___ `pk___`
+4. Create ___Elements wrapper___ using ___publishable key___
+5. Create ___Checkout Form___ using Card element, useStripe, useElements
+6. Get card elements info (___credit card info___)
+
+**[🔼Back to Top](#table-of-contents)**
+
+### Handle payment processing error and success - `Steps 02`
+
+1. Get credit card info/error
 
 **[🔼Back to Top](#table-of-contents)**
