@@ -48,7 +48,8 @@ DB_USER=doctor_admin
 DB_PASS=SX0Lx89Dwptj7Eed
 ACCESS_TOKEN_SECRET=9afeec896f27951228603f3c9c9d3a7f4ed1239f06caadcc53a10bf0d982815e876d3a9df4209fb7e24ad1cb70041a8ef185103df592097f4ed45a1759de344c
 EMAIL_SENDER_KEY= Remove this API keys that have been found to be publicly exposed on GitHub | found from SendGrid/vercel (API keys)
-EMAIL_SENDER=Remove this credentials that have been found to be publicly exposed on GitHub | found from SendGrid/vercel (Email)
+EMAIL_SENDER= Remove this credentials that have been found to be publicly exposed on GitHub | found from SendGrid/vercel (Email)
+STRIPE_SECRET_KEY= found from stripe.com/vercel
 ```
 
 **[🔼Back to Top](#table-of-contents)**
@@ -198,6 +199,8 @@ refetch();
 
 ### Handle payment processing error and success - `Steps 02`
 
-1. Get credit card info/error
+1. Get credit card info/error + display card error (if any)
+2. get client secret from backend via payment intent post API
+3. Store client secret on the client side
 
 **[🔼Back to Top](#table-of-contents)**
